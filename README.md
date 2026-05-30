@@ -89,11 +89,3 @@ npm start
 2. Click "Create API Key"
 3. Copy key to .env file
 4. Free tier: 1500 requests/day
-
----
-
-## Team Firefox
-- T. Madhan — Project Lead
-- M. Kalishwar — Hardware
-- L. Ramraj — Research
-- SK. Divyanand — Design
