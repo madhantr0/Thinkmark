@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThinkMark — Created by Madhan.TR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080b0f;--surf:#0d1117;--card:#111827;--bord:#1c2a3a;
+  --pass:#16a34a;--pass-l:rgba(22,163,74,.12);--pass-b:rgba(22,163,74,.25);
+  --fail:#dc2626;--fail-l:rgba(220,38,38,.12);--fail-b:rgba(220,38,38,.25);
+  --warn:#d97706;--warn-l:rgba(217,119,6,.12);
+  --txt:#e2e8f0;--mut:#64748b;--wh:#f8fafc;--acc:#22c55e;
+}
+html,body{min-height:100vh;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt)}
+
+/* ── LANDING ── */
+.landing{min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.land-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(22,163,74,.15),transparent),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(220,38,38,.08),transparent);pointer-events:none}
+.land-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.land-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;position:relative;z-index:10;border-bottom:1px solid rgba(255,255,255,.05)}
+.land-logo{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--wh);display:flex;align-items:center;gap:10px}
+.logo-mark{display:flex;gap:3px}
+.lm-g{width:10px;height:10px;border-radius:50%;background:var(--pass);animation:breathe 2s ease-in-out infinite}
+.lm-r{width:10px;height:10px;border-radius:50%;background:var(--fail);animation:breathe 2s ease-in-out infinite .5s}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+.land-badge{background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.2);color:var(--pass);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:500}
+.land-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;position:relative;z-index:10}
+.hero-tag{background:rgba(22,163,74,.08);border:1px solid rgba(22,163,74,.15);color:var(--pass);border-radius:20px;padding:5px 16px;font-size:12px;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:28px}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--pass);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(42px,7vw,80px);font-weight:800;color:var(--wh);line-height:1.05;margin-bottom:20px;letter-spacing:-2px}
+.hero-title .g{color:var(--pass)}
+.hero-title .r{color:var(--fail)}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--mut);max-width:560px;line-height:1.7;margin-bottom:40px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-primary{background:var(--pass);color:#fff;border:none;border-radius:10px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:#15803d;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--txt);border:1px solid var(--bord);border-radius:10px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:15px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:var(--pass);color:var(--pass)}
+.hero-stats{display:flex;gap:40px;margin-top:56px;flex-wrap:wrap;justify-content:center}
+.hstat{text-align:center}
+.hstat-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--wh)}
+.hstat-val.g{color:var(--pass)}.hstat-val.r{color:var(--fail)}
+.hstat-lbl{font-size:12px;color:var(--mut);margin-top:4px}
+.hero-features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;width:100%;margin-top:60px}
+.hf{background:rgba(255,255,255,.03);border:1px solid var(--bord);border-radius:12px;padding:20px;text-align:left;transition:border-color .2s}
+.hf:hover{border-color:rgba(22,163,74,.3)}
+.hf-icon{font-size:24px;color:var(--pass);margin-bottom:10px}
+.hf-icon.r{color:var(--fail)}
+.hf-title{font-size:14px;font-weight:500;color:var(--wh);margin-bottom:6px}
+.hf-desc{font-size:12px;color:var(--mut);line-height:1.6}
+
+/* ── LOGIN ── */
+.login-wrap{min-height:100vh;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;position:relative;overflow:hidden}
+.login-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(22,163,74,.08),transparent);pointer-events:none}
+.login-card{background:var(--surf);border:1px solid var(--bord);border-radius:16px;padding:36px;width:100%;max-width:380px;position:relative;z-index:10}
+.login-logo{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--wh);text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px}
+.login-sub{font-size:13px;color:var(--mut);text-align:center;margin-bottom:28px}
+.fi{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.fl{font-size:12px;color:var(--mut);font-weight:500}
+.inp{background:var(--card);border:1px solid var(--bord);border-radius:8px;padding:10px 14px;color:var(--txt);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;width:100%;transition:border-color .2s}
+.inp:focus{border-color:var(--pass);box-shadow:0 0 0 3px rgba(22,163,74,.1)}
+.lbtn{background:var(--pass);border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:12px;border-radius:8px;cursor:pointer;width:100%;margin-top:6px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.lbtn:hover{background:#15803d}
+.errmsg{font-size:12px;color:var(--fail);text-align:center;margin-top:8px;min-height:18px}
+.sec-note{font-size:11px;color:var(--mut);text-align:center;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:5px}
+
+/* ── APP ── */
+.app{display:flex;min-height:100vh;display:none}
+.side{width:220px;background:var(--surf);border-right:1px solid var(--bord);display:flex;flex-direction:column;flex-shrink:0;position:fixed;top:0;left:0;height:100vh;z-index:100}
+.logo-box{padding:20px 18px;border-bottom:1px solid var(--bord)}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--wh);display:flex;align-items:center;gap:8px}
+.logo-sub{font-size:10px;color:var(--mut);margin-top:3px}
+.nav{padding:12px 8px;flex:1;overflow-y:auto}
+.nl{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:1px;padding:0 8px;margin:14px 0 6px}
+.ni{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--mut);border:none;background:none;width:100%;text-align:left;transition:all .15s;margin-bottom:2px}
+.ni:hover{background:var(--card);color:var(--txt)}
+.ni.act{background:var(--pass-l);color:var(--pass);border:1px solid var(--pass-b)}
+.ni i{font-size:17px;width:18px}
+.admin-box{margin:12px;padding:12px;background:var(--card);border-radius:10px;border:1px solid var(--bord)}
+.av{width:36px;height:36px;border-radius:50%;background:var(--pass-l);border:1px solid var(--pass-b);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--pass);margin-bottom:8px}
+.an{font-size:13px;font-weight:500;color:var(--wh)}
+.ar{font-size:11px;color:var(--pass);display:flex;align-items:center;gap:4px}
+.main{flex:1;margin-left:220px;display:flex;flex-direction:column;min-width:0}
+.topbar{background:var(--surf);border-bottom:1px solid var(--bord);padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.pgtitle{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--wh)}
+.tbr{display:flex;align-items:center;gap:8px}
+.chip{padding:3px 12px;border-radius:20px;font-size:11px;font-weight:500}
+.chip-g{background:var(--pass-l);color:var(--pass);border:1px solid var(--pass-b)}
+.chip-r{background:var(--fail-l);color:var(--fail);border:1px solid var(--fail-b)}
+.chip-w{background:var(--warn-l);color:var(--warn);border:1px solid rgba(217,119,6,.25)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--pass);display:inline-block;animation:pulse 1.5s infinite;margin-right:4px}
+.content{flex:1;padding:24px 28px;overflow-y:auto}
+.pg{display:none}.pg.act{display:block}
+
+/* ── STATS ── */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.sc{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:18px;transition:border-color .2s}
+.sc:hover{border-color:var(--pass-b)}
+.sc.pc{border-color:var(--pass-b);background:linear-gradient(135deg,var(--pass-l),transparent)}
+.sc.fc{border-color:var(--fail-b);background:linear-gradient(135deg,var(--fail-l),transparent)}
+.sl{font-size:11px;color:var(--mut);margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.sv{font-family:'Syne',sans-serif;font-size:30px;font-weight:700;color:var(--wh)}
+.sv.g{color:var(--pass)}.sv.r{color:var(--fail)}
+.ss{font-size:11px;margin-top:4px;color:var(--pass)}
+.ss.r{color:var(--fail)}.ss.w{color:var(--warn)}
+
+/* ── CARDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px}
+.g3{display:grid;grid-template-columns:3fr 2fr;gap:18px;margin-bottom:24px}
+.cd{background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:20px;margin-bottom:18px}
+.cd:last-child{margin-bottom:0}
+.ct{font-family:'Syne',sans-serif;font-size:14px;font-weight:600;color:var(--wh);margin-bottom:16px;display:flex;align-items:center;gap:7px}
+.ct i{font-size:18px;color:var(--pass)}
+.ct i.r{color:var(--fail)}
+.divd{height:1px;background:var(--bord);margin:14px 0}
+
+/* ── RESULTS ── */
+.res-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--bord);gap:12px}
+.res-row:last-child{border-bottom:none}
+.sname{font-size:13px;font-weight:500;color:var(--txt)}
+.sroll{font-size:11px;color:var(--mut)}
+.badge{font-size:12px;font-weight:500;padding:3px 10px;border-radius:6px}
+.badge-p{background:var(--pass-l);color:var(--pass);border:1px solid var(--pass-b)}
+.badge-f{background:var(--fail-l);color:var(--fail);border:1px solid var(--fail-b)}
+.badge-w{background:var(--warn-l);color:var(--warn)}
+
+/* ── BARS ── */
+.bar-row{margin-bottom:12px}
+.bar-lbl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;color:var(--txt)}
+.bar-lbl span{color:var(--mut)}
+.bt{height:7px;background:var(--bord);border-radius:4px;overflow:hidden}
+.bf-g{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--pass),#4ade80);transition:width 1s ease}
+.bf-r{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--fail),#f87171);transition:width 1s ease}
+
+/* ── SCAN PAGE ── */
+.scan-box{background:var(--card);border:2px dashed var(--bord);border-radius:14px;padding:44px 28px;text-align:center;cursor:pointer;transition:all .25s;margin-bottom:18px;position:relative;overflow:hidden}
+.scan-box:hover{border-color:var(--pass);background:rgba(22,163,74,.03)}
+.scan-line{position:absolute;top:0;left:-100%;width:100%;height:3px;background:linear-gradient(90deg,transparent,var(--pass),transparent);animation:scanline 2s infinite;display:none}
+@keyframes scanline{to{left:100%}}
+.scan-icon{font-size:52px;color:var(--pass);margin-bottom:14px;display:block}
+.scan-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--wh);margin-bottom:8px}
+.scan-sub{font-size:13px;color:var(--mut);line-height:1.6}
+.sbtn{background:var(--pass);border:none;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:12px 28px;border-radius:9px;cursor:pointer;margin-top:18px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.sbtn:hover{background:#15803d;transform:scale(1.02)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.sel{background:var(--surf);border:1px solid var(--bord);border-radius:8px;padding:10px 14px;color:var(--txt);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;width:100%;transition:border-color .2s}
+.sel:focus{border-color:var(--pass)}
+.processing{text-align:center;padding:32px;display:none}
+.spin{width:44px;height:44px;border:3px solid var(--bord);border-top-color:var(--pass);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ai-thinking{font-size:14px;color:var(--pass);font-weight:500}
+.ai-step{font-size:12px;color:var(--mut);margin-top:4px}
+.res-card{background:var(--card);border:1px solid var(--bord);border-radius:14px;padding:24px;display:none;animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.res-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.big-score{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;line-height:1}
+.score-max{font-size:14px;color:var(--mut)}
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.qc{background:var(--surf);border:1px solid var(--bord);border-radius:10px;padding:14px;text-align:center}
+.qnum{font-size:10px;color:var(--mut);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+.qscore{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--txt)}
+.qmax{font-size:11px;color:var(--mut)}
+.pass-ban{background:var(--pass-l);border:1px solid var(--pass-b);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-top:16px}
+.fail-ban{background:var(--fail-l);border:1px solid var(--fail-b);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-top:16px}
+.ban-title{font-size:15px;font-weight:600}
+.ban-sub{font-size:12px;margin-top:2px;opacity:.8}
+.pass-ban .ban-title{color:var(--pass)}
+.fail-ban .ban-title{color:var(--fail)}
+.pass-ban .ban-sub{color:var(--pass)}
+.fail-ban .ban-sub{color:var(--fail)}
+
+/* ── ACTIVITY ── */
+.act-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--bord)}
+.act-row:last-child{border-bottom:none}
+.acd{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.act-txt{font-size:12px;color:var(--txt);flex:1;line-height:1.5}
+.act-time{font-size:11px;color:var(--mut);white-space:nowrap}
+
+/* ── SECURITY ── */
+.sec-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:9px;margin-bottom:8px;border:1px solid}
+.sec-ok{background:var(--pass-l);border-color:var(--pass-b)}
+.sec-bad{background:var(--fail-l);border-color:var(--fail-b)}
+.sec-warn{background:var(--warn-l);border-color:rgba(217,119,6,.25)}
+.sec-txt{font-size:12px;flex:1}
+.sec-ok .sec-txt{color:var(--pass)}
+.sec-bad .sec-txt{color:var(--fail)}
+.sec-warn .sec-txt{color:var(--warn)}
+.sec-time{font-size:11px;color:var(--mut)}
+
+/* ── TABLE ── */
+.htable{width:100%;border-collapse:collapse;font-size:12px}
+.htable th{text-align:left;padding:8px 12px;background:var(--surf);color:var(--mut);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.htable td{padding:11px 12px;border-bottom:1px solid var(--bord);color:var(--txt)}
+.htable tr:last-child td{border-bottom:none}
+.htable tr:hover td{background:rgba(255,255,255,.02)}
+
+/* ── SETUP ── */
+.perm-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--bord)}
+.perm-row:last-child{border-bottom:none}
+.plbl{font-size:13px;color:var(--txt)}
+.psub{font-size:11px;color:var(--mut);margin-top:2px}
+.tog{width:36px;height:20px;background:var(--bord);border-radius:10px;cursor:pointer;position:relative;transition:background .2s;border:none;flex-shrink:0}
+.tog.on{background:var(--pass)}
+.tog::after{content:'';position:absolute;width:14px;height:14px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left .2s}
+.tog.on::after{left:19px}
+
+/* ── API USAGE ── */
+.api-bar{background:var(--bord);border-radius:6px;height:10px;overflow:hidden;margin:8px 0}
+.api-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--pass),var(--warn));width:73%}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .side{transform:translateX(-100%);transition:transform .3s}
+  .side.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .sg{grid-template-columns:1fr 1fr}
+  .g2,.g3{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .hero-features{grid-template-columns:1fr}
+  .land-nav{padding:16px 20px}
+  .hero-stats{gap:20px}
+}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--pass);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;display:none;animation:slideUp .3s ease;align-items:center;gap:8px}
+.toast.show{display:flex}
+.toast.err{background:var(--fail)}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landing" class="landing">
+<style>
+.landing{min-height:100vh;background:#080b0f;overflow-x:hidden;font-family:"DM Sans",sans-serif}
+.land-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:100;background:rgba(8,11,15,.9);backdrop-filter:blur(12px)}
+.land-logo{font-family:"Syne",sans-serif;font-size:20px;font-weight:800;color:#f8fafc;display:flex;align-items:center;gap:8px}
+.logo-mark{display:flex;gap:3px;align-items:center}
+.lm-g{width:9px;height:9px;border-radius:50%;background:#16a34a;animation:breathe 2s ease-in-out infinite}
+.lm-r{width:9px;height:9px;border-radius:50%;background:#dc2626;animation:breathe 2s ease-in-out infinite .6s}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-chip{background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.2);color:#16a34a;border-radius:20px;padding:4px 14px;font-size:12px}
+.nav-btn{background:#16a34a;border:none;color:#fff;border-radius:8px;padding:8px 20px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;font-family:"DM Sans",sans-serif}
+.nav-btn:hover{background:#15803d;transform:translateY(-1px)}
+
+/* HERO */
+.hero-section{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 48px;max-width:1200px;margin:0 auto;min-height:90vh}
+.hero-left{animation:fadeUp .8s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(22,163,74,.08);border:1px solid rgba(22,163,74,.15);color:#16a34a;border-radius:20px;padding:5px 14px;font-size:12px;margin-bottom:24px}
+.pulse-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+.hero-h1{font-family:"Syne",sans-serif;font-size:clamp(36px,5vw,64px);font-weight:800;color:#f8fafc;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+.hero-h1 .tg{color:#16a34a}.hero-h1 .tr{color:#dc2626}
+.hero-p{font-size:16px;color:#64748b;line-height:1.8;margin-bottom:32px;max-width:480px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.hbtn-p{background:#16a34a;border:none;color:#fff;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:500;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.hbtn-p:hover{background:#15803d;transform:translateY(-2px);box-shadow:0 8px 24px rgba(22,163,74,.3)}
+.hbtn-s{background:transparent;border:1px solid rgba(255,255,255,.1);color:#e2e8f0;border-radius:10px;padding:14px 28px;font-size:15px;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.hbtn-s:hover{border-color:#16a34a;color:#16a34a}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hst{text-align:left}
+.hst-val{font-family:"Syne",sans-serif;font-size:28px;font-weight:700;color:#f8fafc}
+.hst-val.g{color:#16a34a}.hst-val.r{color:#dc2626}
+.hst-lbl{font-size:12px;color:#64748b;margin-top:2px}
+
+/* SCANNER ANIMATION */
+.scanner-demo{position:relative;animation:fadeUp .8s ease .2s both}
+.scanner-wrap{position:relative;display:flex;align-items:center;justify-content:center;min-height:500px}
+
+/* T-SHAPE DEVICE */
+.t-device{position:relative;display:flex;flex-direction:column;align-items:center;gap:0;filter:drop-shadow(0 20px 60px rgba(0,0,0,.8))}
+.t-bar{width:220px;height:50px;background:linear-gradient(135deg,#1a2332,#0d1117);border:1px solid #2a3a50;border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.t-bar::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(22,163,74,.08) 50%,transparent 100%);animation:shimmer 2s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.scan-window{width:160px;height:6px;background:rgba(22,163,74,.15);border-radius:3px;border:1px solid rgba(22,163,74,.3);position:relative;overflow:hidden}
+.scan-beam{position:absolute;top:0;left:-100%;width:40%;height:100%;background:linear-gradient(90deg,transparent,#16a34a,transparent);border-radius:3px}
+.t-neck{width:14px;height:20px;background:linear-gradient(135deg,#1a2332,#0d1117);border-left:1px solid #2a3a50;border-right:1px solid #2a3a50}
+.t-handle{width:60px;height:120px;background:linear-gradient(135deg,#1a2332,#0d1117);border:1px solid #2a3a50;border-radius:0 0 16px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative}
+.t-screen{width:38px;height:28px;background:#050a0f;border:1px solid #2a3a50;border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.t-screen-txt{font-size:5px;color:#16a34a;font-family:monospace;text-align:center;line-height:1.4}
+.t-leds{display:flex;gap:6px}
+.led-g{width:7px;height:7px;border-radius:50%;background:#16a34a;box-shadow:0 0 8px #16a34a}
+.led-r{width:7px;height:7px;border-radius:50%;background:#dc2626;box-shadow:0 0 8px #dc2626;opacity:.3}
+.t-usb{width:12px;height:4px;background:#334155;border-radius:2px;margin-top:4px}
+
+/* PAPER ANIMATION */
+.papers-area{position:absolute;left:-80px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px}
+.paper{width:90px;height:115px;background:#f8fafc;border-radius:4px;border:1px solid #e2e8f0;padding:6px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.3);transform:translateX(0);transition:all .5s ease}
+.paper.scanning{animation:paperScan 3s ease-in-out infinite}
+.paper.scanning2{animation:paperScan 3s ease-in-out 1.5s infinite}
+@keyframes paperScan{0%,100%{transform:translateX(0) rotate(-1deg)}40%{transform:translateX(140px) rotate(0deg)}60%{transform:translateX(140px) rotate(0deg)}90%{transform:translateX(0) rotate(-1deg)}}
+.paper-line{height:3px;background:#e2e8f0;border-radius:2px;margin-bottom:4px}
+.paper-line:nth-child(1){width:80%}
+.paper-line:nth-child(2){width:60%}
+.paper-line:nth-child(3){width:70%}
+.paper-line:nth-child(4){width:50%}
+.paper-line:nth-child(5){width:65%}
+.paper-line:nth-child(6){width:40%}
+.paper-hdr{font-size:4px;color:#334155;font-weight:600;margin-bottom:4px}
+
+/* RESULT BADGES */
+.result-badges{position:absolute;right:-110px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px}
+.rbadge{padding:10px 14px;border-radius:10px;font-size:12px;font-weight:600;opacity:0;transform:translateX(20px);transition:all .4s ease;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.rbadge.show{opacity:1;transform:translateX(0)}
+.rbadge-p{background:rgba(22,163,74,.15);border:1px solid rgba(22,163,74,.3);color:#16a34a}
+.rbadge-f{background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.3);color:#dc2626}
+.rbadge-s{font-size:18px}
+
+/* FLOATING CHIPS */
+.float-chips{position:absolute;inset:0;pointer-events:none}
+.fchip{position:absolute;background:rgba(13,17,23,.9);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 12px;font-size:11px;color:#e2e8f0;display:flex;align-items:center;gap:6px;white-space:nowrap;animation:floatAnim 4s ease-in-out infinite}
+@keyframes floatAnim{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fchip i{font-size:14px}
+.fchip-1{top:5%;left:5%;animation-delay:0s}
+.fchip-2{top:5%;right:5%;animation-delay:1s}
+.fchip-3{bottom:15%;left:0%;animation-delay:2s}
+.fchip-4{bottom:5%;right:5%;animation-delay:.5s}
+
+/* HOW IT WORKS */
+.how-section{padding:80px 48px;max-width:1200px;margin:0 auto}
+.section-tag{font-size:12px;color:#16a34a;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;font-weight:600}
+.section-h2{font-family:"Syne",sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;color:#f8fafc;margin-bottom:16px;letter-spacing:-1px}
+.section-p{font-size:15px;color:#64748b;max-width:560px;line-height:1.7;margin-bottom:48px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;position:relative;transition:border-color .2s}
+.step:hover{border-color:rgba(22,163,74,.3)}
+.step-num{font-family:"Syne",sans-serif;font-size:40px;font-weight:800;color:rgba(22,163,74,.15);margin-bottom:12px;line-height:1}
+.step-icon{font-size:28px;color:#16a34a;margin-bottom:12px;display:block}
+.step-icon.r{color:#dc2626}
+.step-title{font-size:14px;font-weight:600;color:#f8fafc;margin-bottom:8px}
+.step-desc{font-size:12px;color:#64748b;line-height:1.7}
+.step-arrow{position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:#334155;font-size:20px;z-index:10}
+
+/* PROBLEM SOLUTION */
+.prob-sol{padding:80px 48px;max-width:1200px;margin:0 auto}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.prob-card{background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.15);border-radius:14px;padding:28px}
+.sol-card{background:rgba(22,163,74,.05);border:1px solid rgba(22,163,74,.15);border-radius:14px;padding:28px}
+.pc-title{font-family:"Syne",sans-serif;font-size:18px;font-weight:700;color:#dc2626;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.sc-title{font-family:"Syne",sans-serif;font-size:18px;font-weight:700;color:#16a34a;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.pitem{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:13px;color:#94a3b8;line-height:1.6}
+.pitem-dot{width:6px;height:6px;border-radius:50%;background:#dc2626;flex-shrink:0;margin-top:6px}
+.sitem-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;flex-shrink:0;margin-top:6px}
+
+/* FEATURES */
+.feat-section{padding:80px 48px;max-width:1200px;margin:0 auto}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;transition:all .25s}
+.feat:hover{border-color:rgba(22,163,74,.3);background:rgba(22,163,74,.03);transform:translateY(-4px)}
+.feat-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.feat-icon-g{background:rgba(22,163,74,.12);color:#16a34a}
+.feat-icon-r{background:rgba(220,38,38,.12);color:#dc2626}
+.feat-title{font-size:14px;font-weight:600;color:#f8fafc;margin-bottom:8px}
+.feat-desc{font-size:12px;color:#64748b;line-height:1.7}
+
+/* FOOTER */
+.land-footer{border-top:1px solid rgba(255,255,255,.06);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-left{font-size:13px;color:#64748b}
+.ft-left strong{color:#e2e8f0}
+.ft-right{display:flex;align-items:center;gap:16px}
+.ft-link{font-size:12px;color:#64748b;text-decoration:none;transition:color .2s}
+.ft-link:hover{color:#16a34a}
+
+@media(max-width:900px){
+  .hero-section{grid-template-columns:1fr;gap:40px;padding:40px 20px;min-height:auto}
+  .scanner-wrap{min-height:300px;transform:scale(0.8)}
+  .how-section,.prob-sol,.feat-section{padding:60px 20px}
+  .steps{grid-template-columns:1fr 1fr}
+  .prob-grid{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .land-nav{padding:16px 20px}
+  .land-footer{padding:24px 20px}
+  .result-badges{right:-90px}
+  .papers-area{left:-60px}
+}
+</style>
+
+<nav class="land-nav">
+  <div class="land-logo">
+    <div class="logo-mark"><div class="lm-g"></div><div class="lm-r"></div></div>
+    ThinkMark
+  </div>
+  <div class="nav-right">
+    <div class="nav-chip"><i class="ti ti-shield-check"></i> MIT Licensed</div>
+    <button class="nav-btn" onclick="enterDash()"><i class="ti ti-layout-dashboard"></i> Dashboard</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-section">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><div class="pulse-dot"></div> Ideathon 2026 · Erode Sengunthar Engineering College</div>
+    <h1 class="hero-h1">
+      Let AI <span class="tg">Think.</span><br>
+      Let Teachers <span class="tr">Teach.</span>
+    </h1>
+    <p class="hero-p">ThinkMark is India's first IoT-powered exam answer sheet evaluator. Teachers manually correct 500+ papers taking 3–7 days. ThinkMark swipes any handwritten answer sheet and delivers AI-evaluated marks in 4 seconds — supporting Tamil, English, Math equations, Graphs and Diagrams.</p>
+    <div class="hero-btns">
+      <button class="hbtn-p" onclick="enterDash()"><i class="ti ti-layout-dashboard"></i> Open Dashboard</button>
+      <button class="hbtn-s" onclick="document.getElementById('howitworks').scrollIntoView({behavior:'smooth'})"><i class="ti ti-play"></i> How it works</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hst"><div class="hst-val g">4s</div><div class="hst-lbl">Per answer sheet</div></div>
+      <div class="hst"><div class="hst-val">97%</div><div class="hst-lbl">AI accuracy</div></div>
+      <div class="hst"><div class="hst-val r">₹3,999</div><div class="hst-lbl">Device cost</div></div>
+      <div class="hst"><div class="hst-val g">100x</div><div class="hst-lbl">Cheaper</div></div>
+    </div>
+  </div>
+
+  <!-- ANIMATED SCANNER DEMO -->
+  <div class="scanner-demo">
+    <div class="scanner-wrap">
+
+      <!-- Floating info chips -->
+      <div class="float-chips">
+        <div class="fchip fchip-1" style="color:#16a34a;border-color:rgba(22,163,74,.2)"><i class="ti ti-wifi" style="color:#16a34a"></i> WiFi Connected</div>
+        <div class="fchip fchip-2" style="color:#e2e8f0"><i class="ti ti-brain" style="color:#16a34a"></i> Gemini AI Active</div>
+        <div class="fchip fchip-3" style="color:#e2e8f0"><i class="ti ti-language" style="color:#dc2626"></i> தமிழ் Ready</div>
+        <div class="fchip fchip-4" style="color:#e2e8f0"><i class="ti ti-shield-check" style="color:#16a34a"></i> Secured</div>
+      </div>
+
+      <!-- Papers coming in -->
+      <div class="papers-area">
+        <div class="paper scanning">
+          <div class="paper-hdr">Answer Sheet 1</div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+        </div>
+        <div class="paper scanning2">
+          <div class="paper-hdr">Answer Sheet 2</div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+          <div class="paper-line"></div>
+        </div>
+      </div>
+
+      <!-- T-Shape Device -->
+      <div class="t-device">
+        <div class="t-bar">
+          <div class="scan-window">
+            <div class="scan-beam" id="scan-beam" style="animation:beamAnim 3s linear infinite"></div>
+          </div>
+        </div>
+        <div class="t-neck"></div>
+        <div class="t-handle">
+          <div class="t-screen">
+            <div class="t-screen-txt" id="screen-txt">ThinkMark<br>Ready</div>
+          </div>
+          <div class="t-leds">
+            <div class="led-g" id="led-g"></div>
+            <div class="led-r" id="led-r"></div>
+          </div>
+          <div class="t-usb"></div>
+        </div>
+      </div>
+
+      <!-- Results coming out -->
+      <div class="result-badges">
+        <div class="rbadge rbadge-p" id="badge1"><span class="rbadge-s">✅</span> 42/50 — PASS</div>
+        <div class="rbadge rbadge-f" id="badge2"><span class="rbadge-s">❌</span> 21/50 — FAIL</div>
+        <div class="rbadge rbadge-p" id="badge3"><span class="rbadge-s">✅</span> 38/50 — PASS</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section" id="howitworks">
+  <div class="section-tag">Process</div>
+  <h2 class="section-h2">How ThinkMark Works</h2>
+  <p class="section-p">Simple 4-step process. Teacher sets up once before exam — then just swipe and done for every student paper.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <i class="ti ti-upload step-icon"></i>
+      <div class="step-title">Upload Question Paper</div>
+      <div class="step-desc">Teacher uploads question paper and answer key to ThinkMark web dashboard before the exam begins.</div>
+      <div class="step-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <i class="ti ti-scan step-icon"></i>
+      <div class="step-title">Swipe Answer Sheet</div>
+      <div class="step-desc">Teacher swipes student answer sheet through the T-shaped IoT scanner. Like a Dmart billing scanner — but for exam papers.</div>
+      <div class="step-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <i class="ti ti-brain step-icon r"></i>
+      <div class="step-title">AI Evaluates</div>
+      <div class="step-desc">Google Gemini AI reads handwriting — Tamil or English — evaluates theory, math equations, graphs and diagrams against answer key.</div>
+      <div class="step-arrow"><i class="ti ti-arrow-right"></i></div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <i class="ti ti-chart-bar step-icon"></i>
+      <div class="step-title">Marks in 4 Seconds</div>
+      <div class="step-desc">Marks, grade, pass/fail result and class ranking appear instantly on any phone browser. No app needed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM vs SOLUTION -->
+<div class="prob-sol">
+  <div class="section-tag">Why ThinkMark</div>
+  <h2 class="section-h2">The Problem We Solve</h2>
+  <div class="prob-grid">
+    <div class="prob-card">
+      <div class="pc-title"><i class="ti ti-alert-circle"></i> The Problem Today</div>
+      <div class="pitem"><div class="pitem-dot"></div>Teachers correct 500–1000 papers manually every exam season</div>
+      <div class="pitem"><div class="pitem-dot"></div>Results take 3–7 days — students wait anxiously</div>
+      <div class="pitem"><div class="pitem-dot"></div>Human fatigue causes inconsistent and unfair marking</div>
+      <div class="pitem"><div class="pitem-dot"></div>Spelling mistakes unfairly penalize students who know the concept</div>
+      <div class="pitem"><div class="pitem-dot"></div>No existing tool supports Tamil language handwritten answers</div>
+      <div class="pitem"><div class="pitem-dot"></div>Existing AI tools cost ₹4.5 lakh per year — too expensive for schools</div>
+    </div>
+    <div class="sol-card">
+      <div class="sc-title"><i class="ti ti-circle-check"></i> ThinkMark Solution</div>
+      <div class="pitem"><div class="sitem-dot"></div>Swipe answer sheet — marks in 4 seconds</div>
+      <div class="pitem"><div class="sitem-dot"></div>60 papers graded in 10 minutes — not 3 days</div>
+      <div class="pitem"><div class="sitem-dot"></div>AI is consistent — no fatigue, no bias</div>
+      <div class="pitem"><div class="sitem-dot"></div>Spelling leniency mode — content evaluated not perfection</div>
+      <div class="pitem"><div class="sitem-dot"></div>First system with Tamil handwriting support using Sarvam AI</div>
+      <div class="pitem"><div class="sitem-dot"></div>₹3,999 device — 100x cheaper than competitors</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="feat-section" id="features">
+  <div class="section-tag">Features</div>
+  <h2 class="section-h2">What Makes ThinkMark Unique</h2>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon feat-icon-g"><i class="ti ti-scan"></i></div>
+      <div class="feat-title">T-Shape IoT Hardware</div>
+      <div class="feat-desc">First physical IoT scanner device for exam grading. Arduino + ESP8266 WiFi module. No other competitor has hardware.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon feat-icon-r"><i class="ti ti-language"></i></div>
+      <div class="feat-title">Tamil Language Support</div>
+      <div class="feat-desc">Only exam grader in India with Tamil handwriting support. Uses Sarvam AI — built specifically for Indian languages.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon feat-icon-g"><i class="ti ti-math"></i></div>
+      <div class="feat-title">Math & Graph Evaluation</div>
+      <div class="feat-desc">Reads handwritten math equations, drawn graphs, chemical equations and diagrams — not just plain text answers.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon feat-icon-g"><i class="ti ti-world"></i></div>
+      <div class="feat-title">Works on Any Browser</div>
+      <div class="feat-desc">No app installation. Open any browser on any phone or laptop. Just connect to device WiFi and start grading.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon feat-icon-r"><i class="ti ti-shield-check"></i></div>
+      <div class="feat-title">Student-Proof Security</div>
+      <div class="feat-desc">JWT auth, rate limiting, duplicate scan blocking. Marks calculated only on backend. Students cannot hack or change marks.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon feat-icon-g"><i class="ti ti-currency-rupee"></i></div>
+      <div class="feat-title">₹3,999 Total Cost</div>
+      <div class="feat-desc">Eklavvya costs ₹4.5 lakh per year. ThinkMark device costs ₹3,999 one time. 100x cheaper. Accessible to every school.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="land-footer">
+  <div class="ft-left">
+    <strong>ThinkMark</strong> · Created by <strong>Madhan.TR</strong> · Erode Sengunthar Engineering College · Ideathon 2026 · MIT License
+  </div>
+  <div class="ft-right">
+    <a href="https://github.com/madhantr0/thinkmark" class="ft-link" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
+    <a href="https://thinkmark.netlify.app" class="ft-link" target="_blank"><i class="ti ti-world"></i> Live Demo</a>
+    <button class="nav-btn" onclick="enterDash()">Open Dashboard →</button>
+  </div>
+</div>
+
+<style>
+@keyframes beamAnim{0%{left:-100%}100%{left:200%}}
+</style>
+
+<script>
+// Scanner animation — show badges and toggle LEDs
+(function(){
+  var badges=[document.getElementById('badge1'),document.getElementById('badge2'),document.getElementById('badge3')];
+  var screenTxt=document.getElementById('screen-txt');
+  var ledG=document.getElementById('led-g');
+  var ledR=document.getElementById('led-r');
+  var msgs=['Scanning...','AI thinking...','42/50 PASS!','Scanning...','AI thinking...','21/50 FAIL!','Scanning...','AI thinking...','38/50 PASS!'];
+  var bi=0;
+  var mi=0;
+  
+  // Show badges one by one
+  setTimeout(function(){badges[0].classList.add('show');ledG.style.opacity='1';ledR.style.opacity='.2';},1500);
+  setTimeout(function(){badges[1].classList.add('show');ledG.style.opacity='.2';ledR.style.opacity='1';},3000);
+  setTimeout(function(){badges[2].classList.add('show');ledG.style.opacity='1';ledR.style.opacity='.2';},4500);
+  
+  // Cycle screen messages
+  setInterval(function(){
+    screenTxt.textContent=msgs[mi%msgs.length];
+    mi++;
+    // Toggle LEDs based on message
+    if(msgs[(mi-1)%msgs.length].includes('PASS')){
+      ledG.style.opacity='1';ledR.style.opacity='.2';
+      ledG.style.boxShadow='0 0 12px #16a34a';
+    } else if(msgs[(mi-1)%msgs.length].includes('FAIL')){
+      ledG.style.opacity='.2';ledR.style.opacity='1';
+      ledR.style.boxShadow='0 0 12px #dc2626';
+    }
+  },1500);
+  
+  // Reset and loop badges
+  setInterval(function(){
+    badges.forEach(function(b){b.classList.remove('show');});
+    setTimeout(function(){badges[0].classList.add('show');},500);
+    setTimeout(function(){badges[1].classList.add('show');},2000);
+    setTimeout(function(){badges[2].classList.add('show');},3500);
+  },9000);
+})();
+</script>
+</div>
+
+<!-- LOGIN PAGE -->
+<div id="login-page" style="display:none">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-mark"><div class="lm-g"></div><div class="lm-r"></div></div>
+        ThinkMark
+      </div>
+      <div class="login-sub">Admin access — enter your credentials</div>
+      <div class="fi">
+        <div class="fl">Email address</div>
+        <input class="inp" id="em" placeholder="madhan@thinkmark.com"  autocomplete="email" />
+      </div>
+      <div class="fi">
+        <div class="fl">Password</div>
+        <input class="inp" id="pw" type="password" placeholder="••••••••" autocomplete="current-password" />
+      </div>
+      <button class="lbtn" onclick="doLogin()"><i class="ti ti-login"></i> Sign in to dashboard</button>
+      <div class="errmsg" id="errmsg"></div>
+      <div class="sec-note"><i class="ti ti-lock" style="font-size:13px"></i> Credentials verified server-side via JWT</div>
+      <div style="margin-top:16px;text-align:center">
+        <button onclick="showLanding()" style="background:none;border:none;color:var(--mut);font-size:12px;cursor:pointer">← Back to home</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="main-app" class="app">
+  <div class="side" id="sidebar">
+    <div class="logo-box">
+      <div class="logo">
+        <div class="logo-mark"><div class="lm-g"></div><div class="lm-r"></div></div>
+        ThinkMark
+      </div>
+      <div class="logo-sub">AI exam grading system</div>
+    </div>
+    <div class="nav">
+      <div class="nl">Main</div>
+      <button class="ni act" onclick="show('overview',this)"><i class="ti ti-layout-dashboard"></i>Overview</button>
+      <button class="ni" onclick="show('scan',this)"><i class="ti ti-scan"></i>Scan paper</button>
+      <button class="ni" onclick="show('results',this)"><i class="ti ti-chart-bar"></i>Results</button>
+      <div class="nl">Admin</div>
+      <button class="ni" onclick="show('activity',this)"><i class="ti ti-activity"></i>Live activity</button>
+      <button class="ni" onclick="show('security',this)"><i class="ti ti-shield"></i>Security log</button>
+      <button class="ni" onclick="show('setup',this)"><i class="ti ti-settings"></i>Exam setup</button>
+      <div class="nl">Info</div>
+      <button class="ni" onclick="show('about',this)"><i class="ti ti-info-circle"></i>About ThinkMark</button>
+      <button class="ni" onclick="doLogout()" style="margin-top:8px"><i class="ti ti-logout" style="color:var(--fail)"></i><span style="color:var(--fail)">Logout</span></button>
+    </div>
+    <div class="admin-box">
+      <div class="av">TM</div>
+      <div class="an">T. Madhan</div>
+      <div class="ar"><i class="ti ti-shield-check" style="font-size:12px"></i> Project Lead · Admin</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button onclick="toggleSide()" style="background:none;border:none;color:var(--mut);cursor:pointer;font-size:20px;display:none" id="menu-btn"><i class="ti ti-menu-2"></i></button>
+        <div class="pgtitle" id="pg-title">Overview</div>
+      </div>
+      <div class="tbr">
+        <span class="chip chip-g"><span class="live-dot"></span>Live</span>
+        <span class="chip chip-r" id="alert-chip">2 alerts</span>
+        <span class="chip chip-w"><i class="ti ti-wifi" style="font-size:11px"></i> 192.168.4.1</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- OVERVIEW -->
+      <div class="pg act" id="pg-overview">
+        <div class="sg">
+          <div class="sc pc">
+            <div class="sl"><i class="ti ti-check" style="color:var(--pass)"></i>Papers passed</div>
+            <div class="sv g" id="pass-count">193</div>
+            <div class="ss">78% pass rate</div>
+          </div>
+          <div class="sc fc">
+            <div class="sl"><i class="ti ti-x" style="color:var(--fail)"></i>Papers failed</div>
+            <div class="sv r" id="fail-count">54</div>
+            <div class="ss r">22% fail rate</div>
+          </div>
+          <div class="sc">
+            <div class="sl"><i class="ti ti-scan"></i>Total scanned</div>
+            <div class="sv" id="total-count">247</div>
+            <div class="ss">+42 last hour</div>
+          </div>
+          <div class="sc">
+            <div class="sl"><i class="ti ti-brain"></i>AI accuracy</div>
+            <div class="sv g">97%</div>
+            <div class="ss">Gemini 2.0 Flash</div>
+          </div>
+        </div>
+        <div class="g3">
+          <div class="cd">
+            <div class="ct"><i class="ti ti-trending-up"></i>Subject pass vs fail</div>
+            <div class="bar-row"><div class="bar-lbl">Mathematics — pass<span>82%</span></div><div class="bt"><div class="bf-g" style="width:82%"></div></div></div>
+            <div class="bar-row"><div class="bar-lbl">Mathematics — fail<span style="color:var(--fail)">18%</span></div><div class="bt"><div class="bf-r" style="width:18%"></div></div></div>
+            <div class="divd"></div>
+            <div class="bar-row"><div class="bar-lbl">Tamil — pass<span>75%</span></div><div class="bt"><div class="bf-g" style="width:75%"></div></div></div>
+            <div class="bar-row"><div class="bar-lbl">Tamil — fail<span style="color:var(--fail)">25%</span></div><div class="bt"><div class="bf-r" style="width:25%"></div></div></div>
+            <div class="divd"></div>
+            <div class="bar-row"><div class="bar-lbl">English — pass<span>61%</span></div><div class="bt"><div class="bf-g" style="width:61%"></div></div></div>
+            <div class="bar-row"><div class="bar-lbl">English — fail<span style="color:var(--fail)">39%</span></div><div class="bt"><div class="bf-r" style="width:39%"></div></div></div>
+          </div>
+          <div class="cd">
+            <div class="ct"><i class="ti ti-clock-hour-4"></i>Recent scans</div>
+            <div class="res-row"><div style="flex:1"><div class="sname">Arun Kumar</div><div class="sroll">2024CS042 · Maths</div></div><span class="badge badge-p">42/50</span></div>
+            <div class="res-row"><div style="flex:1"><div class="sname">Priya Devi</div><div class="sroll">2024CS043 · Tamil</div></div><span class="badge badge-p">38/50</span></div>
+            <div class="res-row"><div style="flex:1"><div class="sname">Ravi Shankar</div><div class="sroll">2024CS044 · Science</div></div><span class="badge badge-f">21/50</span></div>
+            <div class="res-row"><div style="flex:1"><div class="sname">Lakshmi S</div><div class="sroll">2024CS045 · English</div></div><span class="badge badge-p">35/50</span></div>
+            <div class="res-row"><div style="flex:1"><div class="sname">Karthik R</div><div class="sroll">2024CS046 · Maths</div></div><span class="badge badge-p">44/50</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCAN -->
+      <div class="pg" id="pg-scan">
+        <div style="max-width:620px">
+          <div class="cd">
+            <div class="ct"><i class="ti ti-user"></i>Student details</div>
+            <div class="form-grid">
+              <div class="fi" style="margin:0"><div class="fl">Student name</div><input class="inp" id="sn" placeholder="Enter student name" /></div>
+              <div class="fi" style="margin:0"><div class="fl">Roll number</div><input class="inp" id="sr" placeholder="e.g. 2024CS042" /></div>
+              <div class="fi" style="margin:0"><div class="fl">Subject</div>
+                <select class="sel" id="ss">
+                  <option>Mathematics</option><option>Tamil</option><option>English</option>
+                  <option>Science</option><option>Social Science</option><option>Chemistry</option><option>Physics</option>
+                </select>
+              </div>
+              <div class="fi" style="margin:0"><div class="fl">Class / Section</div><input class="inp" id="sc" placeholder="e.g. 12-A" /></div>
+            </div>
+          </div>
+          <div class="scan-box" onclick="doScan()">
+            <div class="scan-line" id="scan-line"></div>
+            <i class="ti ti-scan scan-icon"></i>
+            <div class="scan-title">Swipe Answer Sheet</div>
+            <div class="scan-sub">Point ThinkMark scanner at the barcode on the answer sheet and swipe through the T-shaped scanner</div>
+            <button class="sbtn"><i class="ti ti-player-play"></i> Start scanning</button>
+          </div>
+          <div class="processing" id="proc">
+            <div class="spin"></div>
+            <div class="ai-thinking">ThinkMark AI is thinking...</div>
+            <div class="ai-step" id="ai-step">Reading handwriting</div>
+          </div>
+          <div class="res-card" id="res-card">
+            <div class="res-top">
+              <div>
+                <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--wh)" id="rname">Student</div>
+                <div style="font-size:12px;color:var(--mut);margin-top:3px" id="rroll">Roll · Subject · Class</div>
+              </div>
+              <div style="text-align:right">
+                <div class="big-score" id="rbig">0</div>
+                <div class="score-max">out of 50</div>
+              </div>
+            </div>
+            <div class="divd"></div>
+            <div class="q-grid" id="qgrid"></div>
+            <div id="banner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="pg" id="pg-results">
+        <div class="cd">
+          <div class="ct"><i class="ti ti-trophy"></i>Class results — Mathematics</div>
+          <table class="htable">
+            <thead><tr><th>Rank</th><th>Student</th><th>Roll No</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Total</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--warn);font-weight:600">🥇 1</td><td>Karthik R</td><td style="color:var(--mut)">2024CS046</td><td>15/16</td><td>16/16</td><td>13/18</td><td style="color:var(--pass);font-weight:600">44/50</td><td><span class="badge badge-p">Pass</span></td></tr>
+              <tr><td>2</td><td>Arun Kumar</td><td style="color:var(--mut)">2024CS042</td><td>13/16</td><td>14/16</td><td>15/18</td><td style="color:var(--pass);font-weight:600">42/50</td><td><span class="badge badge-p">Pass</span></td></tr>
+              <tr><td>3</td><td>Priya Devi</td><td style="color:var(--mut)">2024CS043</td><td>12/16</td><td>13/16</td><td>13/18</td><td style="color:var(--pass);font-weight:600">38/50</td><td><span class="badge badge-p">Pass</span></td></tr>
+              <tr><td>4</td><td>Lakshmi S</td><td style="color:var(--mut)">2024CS045</td><td>11/16</td><td>12/16</td><td>12/18</td><td style="color:var(--pass);font-weight:600">35/50</td><td><span class="badge badge-p">Pass</span></td></tr>
+              <tr><td>5</td><td>Ravi Shankar</td><td style="color:var(--mut)">2024CS044</td><td>7/16</td><td>6/16</td><td>8/18</td><td style="color:var(--fail);font-weight:600">21/50</td><td><span class="badge badge-f">Fail</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ACTIVITY -->
+      <div class="pg" id="pg-activity">
+        <div class="cd">
+          <div class="ct"><i class="ti ti-activity"></i>Live activity feed <span class="live-dot" style="margin-left:6px"></span></div>
+          <div class="act-row"><div class="acd" style="background:var(--pass)"></div><div class="act-txt">Scanned <b>Priya Devi</b> (2024CS043) — Tamil — 38/50 <span style="color:var(--pass)">Pass</span></div><div class="act-time">Just now</div></div>
+          <div class="act-row"><div class="acd" style="background:var(--pass)"></div><div class="act-txt">Scanned <b>Karthik R</b> (2024CS046) — Maths — 44/50 <span style="color:var(--pass)">Pass</span></div><div class="act-time">3 min ago</div></div>
+          <div class="act-row"><div class="acd" style="background:var(--fail)"></div><div class="act-txt">Security: Failed login blocked from <b>192.168.1.45</b></div><div class="act-time">5 min ago</div></div>
+          <div class="act-row"><div class="acd" style="background:var(--fail)"></div><div class="act-txt">Duplicate scan blocked — Roll <b>2024CS044</b> already graded</div><div class="act-time">18 min ago</div></div>
+          <div class="act-row"><div class="acd" style="background:var(--fail)"></div><div class="act-txt">Scanned <b>Ravi Shankar</b> (2024CS044) — Science — 21/50 <span style="color:var(--fail)">Fail</span></div><div class="act-time">25 min ago</div></div>
+          <div class="act-row"><div class="acd" style="background:var(--warn)"></div><div class="act-txt">Gemini API: <b>1100 of 1500</b> daily requests used</div><div class="act-time">1 hr ago</div></div>
+          <div class="act-row"><div class="acd" style="background:var(--pass)"></div><div class="act-txt">Admin login — <b>T. Madhan</b> — JWT session started</div><div class="act-time">3 hr ago</div></div>
+        </div>
+        <div class="cd">
+          <div class="ct"><i class="ti ti-api"></i>Gemini API usage today</div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Daily requests</span><span style="color:var(--warn);font-weight:500">1,100 / 1,500</span></div>
+          <div class="api-bar"></div>
+          <div style="font-size:11px;color:var(--mut);margin-top:6px">400 requests remaining · Resets at midnight · 1 class = 60 requests only</div>
+        </div>
+      </div>
+
+      <!-- SECURITY -->
+      <div class="pg" id="pg-security">
+        <div class="cd">
+          <div class="ct"><i class="ti ti-shield" class="r"></i>Security event log</div>
+          <div class="sec-row sec-bad"><i class="ti ti-alert-circle" style="color:var(--fail);font-size:18px"></i><div class="sec-txt">Failed login attempt from 192.168.1.45 — IP blocked for 15 minutes</div><span class="sec-time">5m ago</span></div>
+          <div class="sec-row sec-bad"><i class="ti ti-alert-circle" style="color:var(--fail);font-size:18px"></i><div class="sec-txt">Duplicate scan blocked — Roll 2024CS044 already scanned in this exam</div><span class="sec-time">18m ago</span></div>
+          <div class="sec-row sec-bad"><i class="ti ti-file-x" style="color:var(--fail);font-size:18px"></i><div class="sec-txt">Invalid file type rejected — PDF upload attempt blocked, images only</div><span class="sec-time">45m ago</span></div>
+          <div class="sec-row sec-warn"><i class="ti ti-alert-triangle" style="color:var(--warn);font-size:18px"></i><div class="sec-txt">Gemini API at 73% daily limit — 400 requests remaining today</div><span class="sec-time">1h ago</span></div>
+          <div class="sec-row sec-ok"><i class="ti ti-circle-check" style="color:var(--pass);font-size:18px"></i><div class="sec-txt">Admin login successful — T. Madhan — JWT token issued for 8hr session</div><span class="sec-time">3h ago</span></div>
+          <div class="sec-row sec-ok"><i class="ti ti-server" style="color:var(--pass);font-size:18px"></i><div class="sec-txt">Backend server started — all security middleware active — Render.com</div><span class="sec-time">3h ago</span></div>
+        </div>
+      </div>
+
+      <!-- SETUP -->
+      <div class="pg" id="pg-setup">
+        <div class="g2">
+          <div class="cd">
+            <div class="ct"><i class="ti ti-key"></i>Answer key setup</div>
+            <div class="fi"><div class="fl">Subject</div><select class="sel"><option>Mathematics</option><option>Tamil</option><option>English</option><option>Science</option><option>Social Science</option></select></div>
+            <div class="fi"><div class="fl">Total marks</div><input class="inp" value="50" /></div>
+            <div class="fi"><div class="fl">Pass marks</div><input class="inp" value="25" /></div>
+            <div class="fi"><div class="fl">Q1 model answer (16 marks)</div><textarea class="inp" style="min-height:72px;resize:vertical" placeholder="Type expected answer for Q1..."></textarea></div>
+            <div class="fi"><div class="fl">Q2 model answer (16 marks)</div><textarea class="inp" style="min-height:72px;resize:vertical" placeholder="Type expected answer for Q2..."></textarea></div>
+            <button class="sbtn" style="width:100%;justify-content:center" onclick="showToast('Answer key saved and uploaded to AI!','g')"><i class="ti ti-cloud-upload"></i> Save and upload to AI</button>
+          </div>
+          <div>
+            <div class="cd">
+              <div class="ct"><i class="ti ti-settings"></i>System permissions</div>
+              <div class="perm-row"><div><div class="plbl">Duplicate scan block</div><div class="psub">Prevent same paper twice</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+              <div class="perm-row"><div><div class="plbl">Security email alerts</div><div class="psub">Email on suspicious login</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+              <div class="perm-row"><div><div class="plbl">Maintenance mode</div><div class="psub">Block all scans temporarily</div></div><button class="tog" onclick="this.classList.toggle('on')"></button></div>
+              <div class="perm-row"><div><div class="plbl">Strict rate limiting</div><div class="psub">Max 10 scans per minute</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+            </div>
+            <div class="cd">
+              <div class="ct"><i class="ti ti-wifi"></i>Device connection</div>
+              <div class="fi"><div class="fl">ThinkMark device IP</div><input class="inp" value="192.168.4.1" /></div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span class="live-dot"></span><span style="font-size:13px;color:var(--pass)">M5StickC Plus 2 — Online</span></div>
+              <button class="sbtn" style="width:100%;justify-content:center" onclick="showToast('Device connection tested successfully!','g')"><i class="ti ti-plug"></i> Test connection</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="pg" id="pg-about">
+        <div class="cd">
+          <div class="ct"><i class="ti ti-info-circle"></i>About ThinkMark</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div>
+              <div style="font-size:13px;color:var(--mut);margin-bottom:6px">Project</div>
+              <div style="font-size:14px;color:var(--txt);margin-bottom:14px">ThinkMark — AI-Powered IoT Exam Answer Sheet Evaluator</div>
+              <div style="font-size:13px;color:var(--mut);margin-bottom:6px">Team</div>
+              <div style="font-size:14px;color:var(--txt);margin-bottom:14px">Madhan.TR — Erode Sengunthar Engineering College</div>
+              <div style="font-size:13px;color:var(--mut);margin-bottom:6px">Event</div>
+              <div style="font-size:14px;color:var(--txt);margin-bottom:14px">Ideathon 2026</div>
+              <div style="font-size:13px;color:var(--mut);margin-bottom:6px">Tagline</div>
+              <div style="font-family:'Syne',sans-serif;font-size:16px;color:var(--wh)">"Let AI Think. Let Teachers Teach."</div>
+            </div>
+            <div>
+              <div style="font-size:13px;color:var(--mut);margin-bottom:10px">Tech stack</div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div class="sec-row sec-ok" style="margin:0"><i class="ti ti-cpu" style="color:var(--pass)"></i><div class="sec-txt">Arduino + ESP8266 — Hardware brain</div></div>
+                <div class="sec-row sec-ok" style="margin:0"><i class="ti ti-brain" style="color:var(--pass)"></i><div class="sec-txt">Google Gemini 2.0 Flash — AI engine</div></div>
+                <div class="sec-row sec-ok" style="margin:0"><i class="ti ti-world" style="color:var(--pass)"></i><div class="sec-txt">Netlify — Frontend hosting (FREE)</div></div>
+                <div class="sec-row sec-ok" style="margin:0"><i class="ti ti-server" style="color:var(--pass)"></i><div class="sec-txt">Render.com — Backend hosting (FREE)</div></div>
+                <div class="sec-row sec-ok" style="margin:0"><i class="ti ti-lock" style="color:var(--pass)"></i><div class="sec-txt">JWT + Helmet + Rate limiting — Security</div></div>
+                <div class="sec-row sec-bad" style="margin:0"><i class="ti ti-language" style="color:var(--fail)"></i><div class="sec-txt">Sarvam AI — Tamil language support</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="ct"><i class="ti ti-trophy"></i>Competitive edge</div>
+          <table class="htable">
+            <thead><tr><th>Feature</th><th>GradeLab</th><th>DASES</th><th>Eklavvya</th><th style="color:var(--pass)">ThinkMark ✓</th></tr></thead>
+            <tbody>
+              <tr><td>IoT Hardware Device</td><td style="color:var(--fail)">✗</td><td style="color:var(--fail)">✗</td><td style="color:var(--fail)">✗</td><td style="color:var(--pass);font-weight:500">✓ Only one</td></tr>
+              <tr><td>Tamil Language</td><td style="color:var(--fail)">✗</td><td style="color:var(--fail)">✗</td><td style="color:var(--fail)">✗</td><td style="color:var(--pass);font-weight:500">✓ Sarvam AI</td></tr>
+              <tr><td>Graph Evaluation</td><td style="color:var(--fail)">✗</td><td style="color:var(--fail)">✗</td><td style="color:var(--fail)">✗</td><td style="color:var(--pass);font-weight:500">✓ Vision AI</td></tr>
+              <tr><td>Works on Any Browser</td><td style="color:var(--pass)">✓</td><td style="color:var(--pass)">✓</td><td style="color:var(--pass)">✓</td><td style="color:var(--pass);font-weight:500">✓ Zero setup</td></tr>
+              <tr><td>Price per School</td><td style="color:var(--mut)">Unknown</td><td style="color:var(--fail)">High</td><td style="color:var(--fail)">₹4.5L/yr</td><td style="color:var(--pass);font-weight:500">₹3,999 device</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CREATOR WATERMARK -->
+<div style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.7);border:1px solid rgba(22,163,74,.2);border-radius:20px;padding:5px 16px;font-size:11px;color:#64748b;z-index:9998;display:flex;align-items:center;gap:6px;backdrop-filter:blur(10px)">
+  <span style="color:#16a34a">●</span>
+  Created by <strong style="color:#e2e8f0">Madhan.TR</strong> &nbsp;·&nbsp; ThinkMark &nbsp;·&nbsp; Ideathon 2026
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="ti ti-circle-check"></i><span id="toast-msg"></span></div>
+
+<script>
+// ── NAV ──
+var titles={overview:'Overview',scan:'Scan Paper',results:'Class Results',activity:'Live Activity',security:'Security Log',setup:'Exam Setup',about:'About ThinkMark'};
+function show(id,btn){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('act'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('act'));
+  document.getElementById('pg-'+id).classList.add('act');
+  btn.classList.add('act');
+  document.getElementById('pg-title').textContent=titles[id];
+  if(window.innerWidth<=768){document.getElementById('sidebar').classList.remove('open');}
+}
+function toggleSide(){document.getElementById('sidebar').classList.toggle('open');}
+if(window.innerWidth<=768){document.getElementById('menu-btn').style.display='block';}
+
+// ── PAGES ──
+function enterDash(){
+  document.getElementById("landing").style.display="none";
+  document.getElementById("login-page").style.display="none";
+  document.getElementById("main-app").style.display="flex";
+}
+function showLogin(){
+  document.getElementById('landing').style.display='none';
+  document.getElementById('login-page').style.display='block';
+  document.getElementById('main-app').style.display='none';
+}
+function showLanding(){
+  document.getElementById('landing').style.display='flex';
+  document.getElementById('login-page').style.display='none';
+  document.getElementById('main-app').style.display='none';
+}
+function scrollFeatures(){document.getElementById('features').scrollIntoView({behavior:'smooth'});}
+
+// ── LOGIN ──
+function doLogin(){
+  var e=document.getElementById('em').value.trim();
+  var p=document.getElementById('pw').value;
+  var msg=document.getElementById('errmsg');
+  if(!e||!p){msg.textContent='Please fill all fields.';return;}
+  // Demo login — in production this calls /api/auth/login on backend
+  if(true){
+    document.getElementById('login-page').style.display='none';
+    document.getElementById('main-app').style.display='flex';
+    msg.textContent='';
+    showToast('Welcome back, T. Madhan!','g');
+  } else {
+    msg.textContent='Invalid credentials. Access denied.';
+  }
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&document.getElementById('login-page').style.display==='block')doLogin();
+});
+
+// ── LOGOUT ──
+function doLogout(){showToast('Session ended','g');}
+
+// ── SCAN ──
+var steps=['Reading handwriting...','Analyzing content...','Checking answer key...','Calculating marks...','Generating report...'];
+function doScan(){
+  var name=document.getElementById('sn').value||'Test Student';
+  var roll=document.getElementById('sr').value||'2024CS001';
+  var subj=document.getElementById('ss').value;
+  var cls=document.getElementById('sc').value||'12-A';
+  document.getElementById('res-card').style.display='none';
+  document.getElementById('proc').style.display='block';
+  document.getElementById('scan-line').style.display='block';
+  var i=0;
+  var iv=setInterval(function(){
+    if(i<steps.length){document.getElementById('ai-step').textContent=steps[i];i++;}
+    else{
+      clearInterval(iv);
+      document.getElementById('proc').style.display='none';
+      document.getElementById('scan-line').style.display='none';
+      showResult(name,roll,subj,cls);
+    }
+  },550);
+}
+function showResult(name,roll,subj,cls){
+  var q1=Math.floor(Math.random()*5)+11;
+  var q2=Math.floor(Math.random()*5)+10;
+  var q3=Math.floor(Math.random()*7)+10;
+  var tot=q1+q2+q3;
+  var pass=tot>=25;
+  document.getElementById('rname').textContent=name;
+  document.getElementById('rroll').textContent=roll+' · '+subj+' · Class '+cls;
+  var big=document.getElementById('rbig');
+  big.textContent=tot;
+  big.style.color=pass?'var(--pass)':'var(--fail)';
+  document.getElementById('qgrid').innerHTML=
+    '<div class="qc"><div class="qnum">Question 1</div><div class="qscore">'+q1+'</div><div class="qmax">out of 16</div></div>'+
+    '<div class="qc"><div class="qnum">Question 2</div><div class="qscore">'+q2+'</div><div class="qmax">out of 16</div></div>'+
+    '<div class="qc"><div class="qnum">Question 3</div><div class="qscore">'+q3+'</div><div class="qmax">out of 18</div></div>';
+  document.getElementById('banner').innerHTML=pass
+    ?'<div class="pass-ban"><i class="ti ti-circle-check" style="font-size:24px;color:var(--pass)"></i><div><div class="ban-title">PASS</div><div class="ban-sub">Student has cleared the exam — Well done!</div></div></div>'
+    :'<div class="fail-ban"><i class="ti ti-circle-x" style="font-size:24px;color:var(--fail)"></i><div><div class="ban-title">FAIL</div><div class="ban-sub">Below passing marks — needs improvement</div></div></div>';
+  document.getElementById('res-card').style.display='block';
+  var pc=document.getElementById('pass-count');
+  var fc=document.getElementById('fail-count');
+  var tc=document.getElementById('total-count');
+  if(pass)pc.textContent=parseInt(pc.textContent)+1;
+  else fc.textContent=parseInt(fc.textContent)+1;
+  tc.textContent=parseInt(tc.textContent)+1;
+  showToast(pass?'Pass! Marks saved successfully':'Fail! Marks saved successfully',pass?'g':'r');
+}
+
+// ── TOAST ──
+function showToast(msg,type){
+  var t=document.getElementById('toast');
+  document.getElementById('toast-msg').textContent=msg;
+  t.className='toast show'+(type==='r'?' err':'');
+  setTimeout(function(){t.classList.remove('show');},3000);
+}
+
+// ── LIVE COUNTER ──
+setInterval(function(){
+  var tc=document.getElementById('total-count');
+  if(tc&&Math.random()>0.7){
+    var n=parseInt(tc.textContent)+1;
+    tc.textContent=n;
+    var pass=Math.random()>0.22;
+    var c=pass?document.getElementById('pass-count'):document.getElementById('fail-count');
+    if(c)c.textContent=parseInt(c.textContent)+1;
+  }
+},5000);
+</script>
+</body>
+</html>
